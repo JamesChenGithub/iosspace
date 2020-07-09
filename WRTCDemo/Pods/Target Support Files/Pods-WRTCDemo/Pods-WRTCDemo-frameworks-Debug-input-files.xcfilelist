@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-WRTCDemo/Pods-WRTCDemo-frameworks.sh
+${PODS_ROOT}/LiveEB_IOS/Product/LiveEB_IOS.framework
+${PODS_ROOT}/TWebRTC/WebRTC.framework

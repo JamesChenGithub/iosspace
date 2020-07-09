@@ -1,0 +1,32 @@
+PODS:
+  - LiveEB_IOS (1.12.5):
+    - TWebRTC
+  - TWebRTC (1.9.3)
+
+DEPENDENCIES:
+  - LiveEB_IOS (from `https://github.com/tencentyun/leb-ios-sdk.git`, tag `1.12.5`)
+  - TWebRTC (from `https://github.com/tencentyun/TWebRTC-IOS-SDK.git`, tag `1.9.3`)
+
+EXTERNAL SOURCES:
+  LiveEB_IOS:
+    :git: https://github.com/tencentyun/leb-ios-sdk.git
+    :tag: 1.12.5
+  TWebRTC:
+    :git: https://github.com/tencentyun/TWebRTC-IOS-SDK.git
+    :tag: 1.9.3
+
+CHECKOUT OPTIONS:
+  LiveEB_IOS:
+    :git: https://github.com/tencentyun/leb-ios-sdk.git
+    :tag: 1.12.5
+  TWebRTC:
+    :git: https://github.com/tencentyun/TWebRTC-IOS-SDK.git
+    :tag: 1.9.3
+
+SPEC CHECKSUMS:
+  LiveEB_IOS: 31a2fc8200f26649a519fd47d836bd64b6f5be20
+  TWebRTC: e66080900ef1e00e9de42f8b6a639825b3080937
+
+PODFILE CHECKSUM: 5ff2345b9fca1ae606f59e4a148c4445d501d34d
+
+COCOAPODS: 1.9.3
