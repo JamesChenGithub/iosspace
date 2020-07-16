@@ -1,3 +1,6 @@
 [submodule "objc4_debug"]
 	path = objc4_debug
 	url = https://github.com/LGCooci/objc4_debug.git
+[submodule "objcsrc"]
+	path = objcsrc
+	url = https://github.com/JamesChenGithub/objc4_debug.git
