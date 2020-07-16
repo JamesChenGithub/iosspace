@@ -1,0 +1,3 @@
+[submodule "objc4_debug"]
+	path = objc4_debug
+	url = https://github.com/LGCooci/objc4_debug.git

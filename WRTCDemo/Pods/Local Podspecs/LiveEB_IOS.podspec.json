@@ -1,0 +1,26 @@
+{
+  "name": "LiveEB_IOS",
+  "summary": "A short description of LiveEB_IOS.",
+  "homepage": "https://github.com/tencentyun/leb-ios-sdk.git",
+  "license": "MIT",
+  "authors": {
+    "tstan": "tstan@tencent.com"
+  },
+  "version": "1.12.5",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/leb-ios-sdk.git",
+    "tag": "1.12.5"
+  },
+  "source_files": "Product/LiveEB_IOS.framework/Headers/*.h",
+  "public_header_files": "Product/LiveEB_IOS.framework/Headers/*.h",
+  "vendored_frameworks": "Product/LiveEB_IOS.framework",
+  "requires_arc": true,
+  "dependencies": {
+    "TWebRTC": [
+
+    ]
+  }
+}

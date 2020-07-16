@@ -1,0 +1,21 @@
+{
+  "name": "TWebRTC",
+  "summary": "A short description of TWebRTC.",
+  "homepage": "https://github.com/tencentyun/TWebRTC-IOS-SDK.git",
+  "license": "MIT",
+  "authors": {
+    "tstan": "tstan@tencent.com"
+  },
+  "version": "1.9.3",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/tencentyun/TWebRTC-IOS-SDK.git",
+    "tag": "1.9.3"
+  },
+  "source_files": "WebRTC.framework/Headers/*.h",
+  "public_header_files": "WebRTC.framework/Headers/*.h",
+  "vendored_frameworks": "WebRTC.framework",
+  "requires_arc": true
+}

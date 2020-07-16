@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="q2s-ax-ACU">
+                                <rect key="frame" x="16" y="107" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Auto"/>
+                                    <segment title="UIAutoLayout"/>
+                                    <segment title="UIFixLayout"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onGsensorMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="Hq4-ts-zOq"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="3CF-b3-QZO">
+                                <rect key="frame" x="16" y="154" width="382" height="32"/>
+                                <segments>
+                                    <segment title="LandScape"/>
+                                    <segment title="Portait"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onResMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="Ixw-jV-Pvo"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="1ft-2y-vdk">
+                                <rect key="frame" x="16" y="201" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Fill"/>
+                                    <segment title="Fit"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onRenderMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="Dqf-3g-Nvb"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="CD5-3A-Wvl">
+                                <rect key="frame" x="16" y="249" width="382" height="32"/>
+                                <segments>
+                                    <segment title="Rotation_0"/>
+                                    <segment title="Rotation_1"/>
+                                    <segment title="Rotation_2"/>
+                                    <segment title="Rotation_3"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onRotationMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="tzv-b3-ZEw"/>
+                                </connections>
+                            </segmentedControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4Dr-2c-8S8">
+                                <rect key="frame" x="16" y="60" width="273" height="32"/>
+                                <segments>
+                                    <segment title="主播"/>
+                                    <segment title="观众"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onRoleMode:" destination="BYZ-38-t0r" eventType="valueChanged" id="utP-8O-5X9"/>
+                                </connections>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3By-5S-O9x">
+                                <rect key="frame" x="305" y="60.5" width="93" height="30"/>
+                                <state key="normal" title="进房"/>
+                                <state key="selected" title="退房"/>
+                                <connections>
+                                    <action selector="onEnterExitRoom:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vga-hv-SMp"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9uS-ec-HhY">
+                                <rect key="frame" x="0.0" y="296" width="414" height="566"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quH-lN-lWn">
+                                        <rect key="frame" x="-5.5" y="0.0" width="425" height="566"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" secondItem="quH-lN-lWn" secondAttribute="width" multiplier="4:3" id="fyp-we-qbP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.10167277600000001" green="0.1095325425" blue="0.1261537969" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="quH-lN-lWn" firstAttribute="top" secondItem="9uS-ec-HhY" secondAttribute="top" id="2ya-zT-bfs"/>
+                                    <constraint firstAttribute="bottom" secondItem="quH-lN-lWn" secondAttribute="bottom" id="E3o-bl-WCX"/>
+                                    <constraint firstItem="quH-lN-lWn" firstAttribute="centerY" secondItem="9uS-ec-HhY" secondAttribute="centerY" id="cFo-29-Idw"/>
+                                    <constraint firstItem="quH-lN-lWn" firstAttribute="centerX" secondItem="9uS-ec-HhY" secondAttribute="centerX" id="hDC-T4-wSR"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1ft-2y-vdk" secondAttribute="trailing" constant="16" id="1os-Fz-S6g"/>
+                            <constraint firstItem="3By-5S-O9x" firstAttribute="height" secondItem="4Dr-2c-8S8" secondAttribute="height" multiplier="0.967742" id="2pz-RS-c5s"/>
+                            <constraint firstItem="9uS-ec-HhY" firstAttribute="top" secondItem="CD5-3A-Wvl" secondAttribute="bottom" constant="16" id="5ZZ-sO-Ikq"/>
+                            <constraint firstItem="4Dr-2c-8S8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="5gU-IO-nyd"/>
+                            <constraint firstItem="1ft-2y-vdk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="DFW-PF-zop"/>
+                            <constraint firstItem="4Dr-2c-8S8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="LvH-Yb-L5P"/>
+                            <constraint firstItem="3CF-b3-QZO" firstAttribute="top" secondItem="q2s-ax-ACU" secondAttribute="bottom" constant="16" id="MsM-2W-QiJ"/>
+                            <constraint firstItem="3By-5S-O9x" firstAttribute="leading" secondItem="4Dr-2c-8S8" secondAttribute="trailing" constant="16" id="NOc-qV-2MR"/>
+                            <constraint firstItem="3CF-b3-QZO" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Nik-B2-jCW"/>
+                            <constraint firstItem="q2s-ax-ACU" firstAttribute="top" secondItem="4Dr-2c-8S8" secondAttribute="bottom" constant="16" id="TaQ-t8-uTZ"/>
+                            <constraint firstItem="3By-5S-O9x" firstAttribute="centerY" secondItem="4Dr-2c-8S8" secondAttribute="centerY" id="USf-GS-0t4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9uS-ec-HhY" secondAttribute="bottom" id="W7O-J5-hII"/>
+                            <constraint firstItem="CD5-3A-Wvl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="dsZ-yC-4tg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9uS-ec-HhY" secondAttribute="trailing" id="fVi-4G-oqo"/>
+                            <constraint firstItem="3By-5S-O9x" firstAttribute="width" secondItem="4Dr-2c-8S8" secondAttribute="width" multiplier="0.340659" id="lNZ-tz-B8p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3CF-b3-QZO" secondAttribute="trailing" constant="16" id="rZw-ta-ySk"/>
+                            <constraint firstItem="1ft-2y-vdk" firstAttribute="top" secondItem="3CF-b3-QZO" secondAttribute="bottom" constant="16" id="rrF-Xr-Mh1"/>
+                            <constraint firstItem="CD5-3A-Wvl" firstAttribute="top" secondItem="1ft-2y-vdk" secondAttribute="bottom" constant="17" id="sMk-TJ-pVf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CD5-3A-Wvl" secondAttribute="trailing" constant="16" id="sgp-Z7-EYn"/>
+                            <constraint firstItem="q2s-ax-ACU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="uMz-5I-JA5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q2s-ax-ACU" secondAttribute="trailing" constant="16" id="uTh-UG-OJj"/>
+                            <constraint firstItem="9uS-ec-HhY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xHC-YZ-Q3W"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3By-5S-O9x" secondAttribute="trailing" constant="16" id="zi3-Qn-JdD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="accountMode" destination="4Dr-2c-8S8" id="VT3-hA-vmk"/>
+                        <outlet property="gsensorMode" destination="q2s-ax-ACU" id="dJJ-z5-35I"/>
+                        <outlet property="preView" destination="quH-lN-lWn" id="8dq-Kb-yS0"/>
+                        <outlet property="renderMode" destination="1ft-2y-vdk" id="BOo-vY-ojL"/>
+                        <outlet property="resMode" destination="3CF-b3-QZO" id="qs5-1J-Rsh"/>
+                        <outlet property="rotationMode" destination="CD5-3A-Wvl" id="OIW-yX-on5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="837.68115942028987" y="51.5625"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+
+target 'WRTCDemo' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  # use_frameworks!
+ 
+  #####LiveEB_IOS内部使用定制版webrtc TWebRTC 参考 https://github.com/tencentyun/TCWebRTC编译
+  pod 'TWebRTC', :git=>'https://github.com/tencentyun/TWebRTC-IOS-SDK.git' , :tag => '1.9.3'
+  ######
+  pod 'LiveEB_IOS', :git=>'https://github.com/tencentyun/leb-ios-sdk.git' , :tag => '1.12.5'
+  
+end
