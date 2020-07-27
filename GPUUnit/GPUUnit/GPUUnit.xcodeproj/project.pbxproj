@@ -16,8 +16,12 @@
 		92BAB08C24CEDB8300D90D85 /* GLProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB08A24CEDB8300D90D85 /* GLProgram.m */; };
 		92BAB08F24CEE5C100D90D85 /* GLFrameBuffer.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB08D24CEE5C100D90D85 /* GLFrameBuffer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92BAB09024CEE5C100D90D85 /* GLFrameBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB08E24CEE5C100D90D85 /* GLFrameBuffer.m */; };
-		92BAB09324CEF11B00D90D85 /* GLFrameBufferCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09124CEF11B00D90D85 /* GLFrameBufferCache.h */; };
+		92BAB09324CEF11B00D90D85 /* GLFrameBufferCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09124CEF11B00D90D85 /* GLFrameBufferCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92BAB09424CEF11B00D90D85 /* GLFrameBufferCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB09224CEF11B00D90D85 /* GLFrameBufferCache.m */; };
+		92BAB09624CEF6D900D90D85 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BAB09524CEF6D900D90D85 /* AVFoundation.framework */; };
+		92BAB09824CEF6E200D90D85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BAB09724CEF6E200D90D85 /* QuartzCore.framework */; };
+		92BAB09B24CEF8C700D90D85 /* GLOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09924CEF8C700D90D85 /* GLOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92BAB09C24CEF8C700D90D85 /* GLOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB09A24CEF8C700D90D85 /* GLOutput.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		92BAB08E24CEE5C100D90D85 /* GLFrameBuffer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLFrameBuffer.m; sourceTree = "<group>"; };
 		92BAB09124CEF11B00D90D85 /* GLFrameBufferCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLFrameBufferCache.h; sourceTree = "<group>"; };
 		92BAB09224CEF11B00D90D85 /* GLFrameBufferCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLFrameBufferCache.m; sourceTree = "<group>"; };
+		92BAB09524CEF6D900D90D85 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		92BAB09724CEF6E200D90D85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		92BAB09924CEF8C700D90D85 /* GLOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLOutput.h; sourceTree = "<group>"; };
+		92BAB09A24CEF8C700D90D85 /* GLOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLOutput.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +49,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				92BAB09824CEF6E200D90D85 /* QuartzCore.framework in Frameworks */,
+				92BAB09624CEF6D900D90D85 /* AVFoundation.framework in Frameworks */,
 				92BAB08824CEDA8400D90D85 /* CoreVideo.framework in Frameworks */,
 				92BAB08624CEDA7E00D90D85 /* OpenGLES.framework in Frameworks */,
 			);
@@ -79,6 +89,8 @@
 				92BAB08E24CEE5C100D90D85 /* GLFrameBuffer.m */,
 				92BAB09124CEF11B00D90D85 /* GLFrameBufferCache.h */,
 				92BAB09224CEF11B00D90D85 /* GLFrameBufferCache.m */,
+				92BAB09924CEF8C700D90D85 /* GLOutput.h */,
+				92BAB09A24CEF8C700D90D85 /* GLOutput.m */,
 			);
 			path = GPUUnit;
 			sourceTree = "<group>";
@@ -86,6 +98,8 @@
 		92BAB08424CEDA7E00D90D85 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				92BAB09724CEF6E200D90D85 /* QuartzCore.framework */,
+				92BAB09524CEF6D900D90D85 /* AVFoundation.framework */,
 				92BAB08724CEDA8400D90D85 /* CoreVideo.framework */,
 				92BAB08524CEDA7E00D90D85 /* OpenGLES.framework */,
 			);
@@ -102,6 +116,7 @@
 				92BAB04824CED51700D90D85 /* GPUUnit.h in Headers */,
 				92BAB08F24CEE5C100D90D85 /* GLFrameBuffer.h in Headers */,
 				92BAB07B24CED5C700D90D85 /* GLContext.h in Headers */,
+				92BAB09B24CEF8C700D90D85 /* GLOutput.h in Headers */,
 				92BAB09324CEF11B00D90D85 /* GLFrameBufferCache.h in Headers */,
 				92BAB08B24CEDB8300D90D85 /* GLProgram.h in Headers */,
 			);
@@ -177,6 +192,7 @@
 			files = (
 				92BAB07C24CED5C700D90D85 /* GLContext.m in Sources */,
 				92BAB08C24CEDB8300D90D85 /* GLProgram.m in Sources */,
+				92BAB09C24CEF8C700D90D85 /* GLOutput.m in Sources */,
 				92BAB09024CEE5C100D90D85 /* GLFrameBuffer.m in Sources */,
 				92BAB09424CEF11B00D90D85 /* GLFrameBufferCache.m in Sources */,
 			);

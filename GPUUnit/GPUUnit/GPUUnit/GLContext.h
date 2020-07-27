@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreVideo/CVOpenGLESTextureCache.h>
+#import "GLProgram.h"
+#import "GLFrameBuffer.h"
+#include "GLFrameBufferCache.h"
 
 
 typedef NS_ENUM(NSUInteger, GLRotationMode) {
@@ -20,20 +24,59 @@ typedef NS_ENUM(NSUInteger, GLRotationMode) {
     kGLRotate180
 };
 
+@protocol GLInput <NSObject>
+- (void)newFrameReadyAtTime:(CMTime)frameTime atIndex:(NSInteger)textureIndex;
+- (void)setInputFramebuffer:(GLFrameBuffer *)newInputFramebuffer atIndex:(NSInteger)textureIndex;
+- (NSInteger)nextAvailableTextureIndex;
+- (void)setInputSize:(CGSize)newSize atIndex:(NSInteger)textureIndex;
+- (void)setInputRotation:(GLRotationMode)newInputRotation atIndex:(NSInteger)textureIndex;
+- (CGSize)maximumOutputSize;
+- (void)endProcessing;
+- (BOOL)shouldIgnoreUpdatesToThisTarget;
+- (BOOL)enabled;
+- (BOOL)wantsMonochromeInput;
+- (void)setCurrentlyReceivingMonochromeInput:(BOOL)newValue;
+@end
+
+
 #define GPUUnitRotationSwapsWidthAndHeight(rotation) ((rotation) == kGPUImageRotateLeft || (rotation) == kGPUImageRotateRight || (rotation) == kGPUImageRotateRightFlipVertical || (rotation) == kGPUImageRotateRightFlipHorizontal)
 
 
-@class EAGLContext;
 @class GLProgram;
 
 @interface GLContext : NSObject
 
 @property (nonatomic, readonly) dispatch_queue_t contextQueue;
-@property(readonly, nonatomic) EAGLContext *context;
-@property(readonly, nonatomic) CVOpenGLESTextureCacheRef coreVideoTextureCache;
-@property(readonly) GPUImageFramebufferCache *framebufferCache;
-@property(readonly) CVOpenGLESTextureCacheRef coreVideoTextureCache;
-@property(strong, nonatomic) GLProgram *currentShaderProgram;
+@property (nonatomic, strong  ) GLProgram *currentShaderProgram;
+@property (nonatomic, strong  ) EAGLContext *context;
+@property (nonatomic, readonly) CVOpenGLESTextureCacheRef coreVideoTextureCache;
+@property (nonatomic, readonly) GLFrameBufferCache *framebufferCache;
+
+
++ (void *)contextKey;
++ (GLContext *)sharedImageProcessingContext;
++ (dispatch_queue_t)sharedContextQueue;
++ (GLFrameBufferCache *)sharedFramebufferCache;
++ (void)useImageProcessingContext;
+- (void)useAsCurrentContext;
++ (void)setActiveShaderProgram:(GLProgram *)shaderProgram;
+- (void)setContextShaderProgram:(GLProgram *)shaderProgram;
++ (GLint)maximumTextureSizeForThisDevice;
++ (GLint)maximumTextureUnitsForThisDevice;
++ (GLint)maximumVaryingVectorsForThisDevice;
++ (BOOL)deviceSupportsOpenGLESExtension:(NSString *)extension;
++ (BOOL)deviceSupportsRedTextures;
++ (BOOL)deviceSupportsFramebufferReads;
++ (CGSize)sizeThatFitsWithinATextureForSize:(CGSize)inputSize;
+
+- (void)presentBufferForDisplay;
+- (GLProgram *)programForVertexShaderString:(NSString *)vertexShaderString fragmentShaderString:(NSString *)fragmentShaderString;
+- (void)useSharegroup:(EAGLSharegroup *)sharegroup;
+// Manage fast texture upload
++ (BOOL)supportsFastTextureUpload;
+
+
 @end
+
 
 

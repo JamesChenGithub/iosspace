@@ -28,7 +28,7 @@ typedef struct GLTextureOptions {
     GLenum format;
     GLenum type;
 }GLTextureOptions;
-
+GLTextureOptions kDefaultGLTextureOptions();
 
 @interface GLFrameBuffer : NSObject
 

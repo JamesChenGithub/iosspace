@@ -30,6 +30,17 @@
 
 void dataProviderReleaseCallback (void *info, const void *data, size_t size);
 void dataProviderUnlockCallback (void *info, const void *data, size_t size);
+GLTextureOptions kDefaultGLTextureOptions() {
+    GLTextureOptions option;
+    option.minFilter = GL_LINEAR;
+    option.magFilter = GL_LINEAR;
+    option.wrapS = GL_CLAMP_TO_EDGE;
+    option.wrapT = GL_CLAMP_TO_EDGE;
+    option.internalFormat = GL_RGBA;
+    option.format = GL_BGRA;
+    option.type = GL_UNSIGNED_BYTE;
+    return option;
+}
 
 @implementation GLFrameBuffer
 
@@ -54,16 +65,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size);
 
 - (instancetype)initWithSize:(CGSize)framebufferSize overriddenTexture:(GLuint)inputTexture {
     if (self = [super init]) {
-        GLTextureOptions defaultOption;
-        defaultOption.minFilter = GL_LINEAR;
-        defaultOption.magFilter = GL_LINEAR;
-        defaultOption.wrapS = GL_CLAMP_TO_EDGE;
-        defaultOption.wrapT = GL_CLAMP_TO_EDGE;
-        defaultOption.internalFormat = GL_RGBA;
-        defaultOption.format = GL_RGBA;
-        defaultOption.type = GL_UNSIGNED_BYTE;
-        
-        _textureOptions = defaultOption;
+        _textureOptions = kDefaultGLTextureOptions();
         _size = framebufferSize;
         _framebufferReferenceCount = 0;
         _referenceCountingDisabled = YES;
@@ -73,14 +75,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size);
 }
 
 - (instancetype)initWithSize:(CGSize)framebufferSize {
-    GLTextureOptions defaultOption;
-    defaultOption.minFilter = GL_LINEAR;
-    defaultOption.magFilter = GL_LINEAR;
-    defaultOption.wrapS = GL_CLAMP_TO_EDGE;
-    defaultOption.wrapT = GL_CLAMP_TO_EDGE;
-    defaultOption.internalFormat = GL_RGBA;
-    defaultOption.format = GL_RGBA;
-    defaultOption.type = GL_UNSIGNED_BYTE;
+    GLTextureOptions defaultOption = kDefaultGLTextureOptions();
     return [self initWithSize:framebufferSize textureOptions:defaultOption onlyTexture:NO];
 }
 
@@ -102,7 +97,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size);
 
 - (void)generateFramebuffer {
 //    runSynchronouslyOnVideoProcessingQueue()
-    [GLContext ]
+  
 }
 
 @end

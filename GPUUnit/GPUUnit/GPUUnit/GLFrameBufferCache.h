@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "GLFrameBuffer.h"
 
 
 @interface GLFrameBufferCache : NSObject
