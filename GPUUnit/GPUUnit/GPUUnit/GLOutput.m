@@ -125,7 +125,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
 - (instancetype)init {
     if (self = [super init]) {
         _targets = [[NSMutableArray alloc] init];
-        _targetTexturesIndices = [[NSMutableArray alloc] init];
+        _targetTextureIndices = [[NSMutableArray alloc] init];
         _enabled = YES;
         _allTargetsWantMonochromeData = YES;
         _usingNextFrameForImageCapture = NO;
@@ -157,7 +157,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
 - (void)notifyTargetsAboutNewOutputTextures {
     for (id<GLInput> curtarget in _targets) {
         NSInteger idx = [_targets indexOfObject:curtarget];
-        NSInteger txtIdc = [[_targetTexturesIndices objectAtIndex:idx] integerValue];
+        NSInteger txtIdc = [[_targetTextureIndices objectAtIndex:idx] integerValue];
         
         [self setInputFrameBufferForTarget:curtarget atIndex:txtIdc];
     }
@@ -187,7 +187,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
     runSynchronouslyOnVideoProcessingQueue(^{
         [self setInputFrameBufferForTarget:newTarget atIndex:textLocation];
         [self->_targets addObject:newTarget];
-        [self->_targetTexturesIndices addObject:@(textLocation)];
+        [self->_targetTextureIndices addObject:@(textLocation)];
         self->_allTargetsWantMonochromeData = self->_allTargetsWantMonochromeData && [newTarget wantsMonochromeInput];
     });
 }
@@ -206,13 +206,13 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
     _cachedMaximumOutputSize = CGSizeZero;
     
     NSInteger indexOfObject = [_targets indexOfObject:targetToRemove];
-    NSInteger textureIndexOfTarget = [[_targetTexturesIndices objectAtIndex:indexOfObject] integerValue];
+    NSInteger textureIndexOfTarget = [[_targetTextureIndices objectAtIndex:indexOfObject] integerValue];
 
     runSynchronouslyOnVideoProcessingQueue(^{
         [targetToRemove setInputSize:CGSizeZero atIndex:textureIndexOfTarget];
         [targetToRemove setInputRotation:kGLNoRotation atIndex:textureIndexOfTarget];
 
-        [self->_targetTexturesIndices removeObjectAtIndex:indexOfObject];
+        [self->_targetTextureIndices removeObjectAtIndex:indexOfObject];
         [self->_targets removeObject:targetToRemove];
         [targetToRemove endProcessing];
     });
@@ -224,13 +224,13 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
     runSynchronouslyOnVideoProcessingQueue(^{
         for (id<GLInput> targetToRemove in self->_targets) {
             NSInteger indexOfObject = [self->_targets indexOfObject:targetToRemove];
-            NSInteger textureIndexOfTarget = [[self->_targetTexturesIndices objectAtIndex:indexOfObject] integerValue];
+            NSInteger textureIndexOfTarget = [[self->_targetTextureIndices objectAtIndex:indexOfObject] integerValue];
             
             [targetToRemove setInputSize:CGSizeZero atIndex:textureIndexOfTarget];
             [targetToRemove setInputRotation:kGLNoRotation atIndex:textureIndexOfTarget];
         }
         [self->_targets removeAllObjects];
-        [self->_targetTexturesIndices removeAllObjects];
+        [self->_targetTextureIndices removeAllObjects];
         
         self->_allTargetsWantMonochromeData = YES;
     });

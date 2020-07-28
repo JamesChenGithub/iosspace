@@ -42,7 +42,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag);
 @interface GLOutput : NSObject{
     GLFrameBuffer       *_outputFrameBuffer;
     NSMutableArray      *_targets;
-    NSMutableArray      *_targetTexturesIndices;
+    NSMutableArray      *_targetTextureIndices;
     CGSize              _inputTextureSize;
     CGSize              _cachedMaximumOutputSize;
     CGSize              _forcedMaximumSize;

@@ -22,8 +22,12 @@
 		92BAB09824CEF6E200D90D85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92BAB09724CEF6E200D90D85 /* QuartzCore.framework */; };
 		92BAB09B24CEF8C700D90D85 /* GLOutput.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09924CEF8C700D90D85 /* GLOutput.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92BAB09C24CEF8C700D90D85 /* GLOutput.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB09A24CEF8C700D90D85 /* GLOutput.m */; };
-		92BAB09F24CFE86D00D90D85 /* GLRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09D24CFE86D00D90D85 /* GLRenderView.h */; };
+		92BAB09F24CFE86D00D90D85 /* GLRenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB09D24CFE86D00D90D85 /* GLRenderView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		92BAB0A024CFE86D00D90D85 /* GLRenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB09E24CFE86D00D90D85 /* GLRenderView.m */; };
+		92BAB0A324D004BC00D90D85 /* GLFilter.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB0A124D004BC00D90D85 /* GLFilter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92BAB0A424D004BC00D90D85 /* GLFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB0A224D004BC00D90D85 /* GLFilter.m */; };
+		92BAB0A724D004D000D90D85 /* GLFilterPipeline.h in Headers */ = {isa = PBXBuildFile; fileRef = 92BAB0A524D004D000D90D85 /* GLFilterPipeline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		92BAB0A824D004D000D90D85 /* GLFilterPipeline.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BAB0A624D004D000D90D85 /* GLFilterPipeline.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +50,10 @@
 		92BAB09A24CEF8C700D90D85 /* GLOutput.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLOutput.m; sourceTree = "<group>"; };
 		92BAB09D24CFE86D00D90D85 /* GLRenderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLRenderView.h; sourceTree = "<group>"; };
 		92BAB09E24CFE86D00D90D85 /* GLRenderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLRenderView.m; sourceTree = "<group>"; };
+		92BAB0A124D004BC00D90D85 /* GLFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLFilter.h; sourceTree = "<group>"; };
+		92BAB0A224D004BC00D90D85 /* GLFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLFilter.m; sourceTree = "<group>"; };
+		92BAB0A524D004D000D90D85 /* GLFilterPipeline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLFilterPipeline.h; sourceTree = "<group>"; };
+		92BAB0A624D004D000D90D85 /* GLFilterPipeline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GLFilterPipeline.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 				92BAB09A24CEF8C700D90D85 /* GLOutput.m */,
 				92BAB09D24CFE86D00D90D85 /* GLRenderView.h */,
 				92BAB09E24CFE86D00D90D85 /* GLRenderView.m */,
+				92BAB0A124D004BC00D90D85 /* GLFilter.h */,
+				92BAB0A224D004BC00D90D85 /* GLFilter.m */,
+				92BAB0A524D004D000D90D85 /* GLFilterPipeline.h */,
+				92BAB0A624D004D000D90D85 /* GLFilterPipeline.m */,
 			);
 			path = GPUUnit;
 			sourceTree = "<group>";
@@ -123,6 +135,8 @@
 				92BAB08F24CEE5C100D90D85 /* GLFrameBuffer.h in Headers */,
 				92BAB07B24CED5C700D90D85 /* GLContext.h in Headers */,
 				92BAB09B24CEF8C700D90D85 /* GLOutput.h in Headers */,
+				92BAB0A324D004BC00D90D85 /* GLFilter.h in Headers */,
+				92BAB0A724D004D000D90D85 /* GLFilterPipeline.h in Headers */,
 				92BAB09F24CFE86D00D90D85 /* GLRenderView.h in Headers */,
 				92BAB09324CEF11B00D90D85 /* GLFrameBufferCache.h in Headers */,
 				92BAB08B24CEDB8300D90D85 /* GLProgram.h in Headers */,
@@ -201,7 +215,9 @@
 				92BAB0A024CFE86D00D90D85 /* GLRenderView.m in Sources */,
 				92BAB08C24CEDB8300D90D85 /* GLProgram.m in Sources */,
 				92BAB09C24CEF8C700D90D85 /* GLOutput.m in Sources */,
+				92BAB0A824D004D000D90D85 /* GLFilterPipeline.m in Sources */,
 				92BAB09024CEE5C100D90D85 /* GLFrameBuffer.m in Sources */,
+				92BAB0A424D004BC00D90D85 /* GLFilter.m in Sources */,
 				92BAB09424CEF11B00D90D85 /* GLFrameBufferCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

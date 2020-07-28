@@ -39,7 +39,7 @@ typedef NS_ENUM(NSUInteger, GLRotationMode) {
 @end
 
 
-#define GPUUnitRotationSwapsWidthAndHeight(rotation) ((rotation) == kGPUImageRotateLeft || (rotation) == kGPUImageRotateRight || (rotation) == kGPUImageRotateRightFlipVertical || (rotation) == kGPUImageRotateRightFlipHorizontal)
+#define GPUUnitRotationSwapsWidthAndHeight(rotation) ((rotation) == kGLRotateLeft || (rotation) == kGLRotateRight || (rotation) == kGLRotateRightFlipVertical || (rotation) == kGLRotateRightFlipHorizontal)
 
 
 @class GLProgram;
