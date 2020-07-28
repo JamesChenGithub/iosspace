@@ -73,7 +73,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag);
 - (void)addTarget:(id<GLInput>)target atTextureLocation:(NSInteger)textLocation;
 
 - (void)removeTarget:(id<GLInput>)target;
-- (void)removeATllargets;
+- (void)removeAllTargets;
 
 - (void)forceProcessingAtSize:(CGSize)frameSize;
 - (void)forceProcessingAtSizeRespectingAspectRatio:(CGSize)frameSize;

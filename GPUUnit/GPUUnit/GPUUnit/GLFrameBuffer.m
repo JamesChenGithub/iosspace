@@ -335,7 +335,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size) {
     [self lockForReading];
     GLubyte *buffer = CVPixelBufferGetBaseAddress(_renderTarget);
     [self unlockAfterReading];
-    return buffer; // TODO: do more with this on the non-texture-cache side
+    return buffer;
 #else
     return NULL;
 #endif
@@ -345,7 +345,7 @@ void dataProviderUnlockCallback (void *info, const void *data, size_t size) {
 #if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
     return _renderTarget;
 #else
-    return NULL; // TODO: do more with this on the non-texture-cache side
+    return NULL; 
 #endif
 }
 

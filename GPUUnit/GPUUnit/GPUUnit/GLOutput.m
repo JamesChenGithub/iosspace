@@ -138,14 +138,14 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
 
 - (void)dealloc
 {
-    [self removeATllargets];
+    [self removeAllTargets];
 }
 
 - (void)setInputFrameBufferForTarget:(id<GLInput>)target atIndex:(NSInteger)index {
-    [target setInputFramebuffer:[self framebufferForOutput] atIndex:index];
+    [target setInputFramebuffer:[self frameBufferOutput] atIndex:index];
 }
 
-- (GLFrameBuffer *)framebufferForOutput;
+- (GLFrameBuffer *)frameBufferOutput
 {
     return _outputFrameBuffer;
 }
@@ -218,7 +218,7 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
     });
 }
 
-- (void)removeAllTargets;
+- (void)removeAllTargets
 {
     _cachedMaximumOutputSize = CGSizeZero;
     runSynchronouslyOnVideoProcessingQueue(^{
@@ -247,6 +247,12 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
 - (void)useNextFrameForImageCapture {
     
 }
+
+- (CGImageRef)newCGImageFromCurrentlyProcessedOutput;
+{
+    return nil;
+}
+
 
 - (CGImageRef)newCGImageByFilteringCGImage:(CGImageRef)imageToFilter {
     // TODO
