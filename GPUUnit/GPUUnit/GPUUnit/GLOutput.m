@@ -236,4 +236,120 @@ void reportAvailableMemoryForGPUUnit(NSString *tag) {
     });
 }
 
+- (void)forceProcessingAtSize:(CGSize)frameSize {
+    
+}
+
+- (void)forceProcessingAtSizeRespectingAspectRatio:(CGSize)frameSize{
+    
+}
+
+- (void)useNextFrameForImageCapture {
+    
+}
+
+- (CGImageRef)newCGImageByFilteringCGImage:(CGImageRef)imageToFilter {
+    // TODO
+    return imageToFilter;
+}
+
+- (BOOL)providesMonochromeOutput {
+    return NO;
+}
+#if TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE
+- (UIImage *)imageFromCurrentFramebuffer {
+    UIDeviceOrientation devOr = [[UIDevice currentDevice] orientation];
+    UIImageOrientation imgOr = UIImageOrientationLeft;
+    
+    switch (devOr) {
+        case UIDeviceOrientationPortrait:
+            imgOr = UIImageOrientationUp;
+            break;
+            case UIDeviceOrientationPortraitUpsideDown:
+            imgOr = UIImageOrientationDown;
+            break;
+            case UIDeviceOrientationLandscapeLeft:
+            imgOr = UIImageOrientationLeft;
+            break;
+            case UIDeviceOrientationLandscapeRight:
+            imgOr = UIImageOrientationRight;
+            break;
+        default:
+            imgOr = UIImageOrientationUp;
+            break;
+    }
+    
+    return [self imageFromCurrentFramebufferWithOrientation:imgOr];
+}
+
+
+- (UIImage *)imageFromCurrentFramebufferWithOrientation:(UIImageOrientation)imageOrientation {
+    
+    CGImageRef cgImgFromBytes = [self newCGImageFromCurrentlyProcessedOutput];
+    UIImage *finalImg = [UIImage imageWithCGImage:cgImgFromBytes scale:1.0 orientation:imageOrientation];
+    CGImageRelease(cgImgFromBytes);
+    return finalImg;
+}
+
+- (UIImage *)imageByFilteringImage:(UIImage *)imageToFilter{
+    CGImageRef img = [self newCGImageByFilteringCGImage:[imageToFilter CGImage]];
+    UIImage *proImg = [UIImage imageWithCGImage:img scale:[imageToFilter scale] orientation:[imageToFilter imageOrientation]];
+    CGImageRelease(img);
+    return proImg;
+}
+
+- (CGImageRef)newCGImageByFilteringImage:(UIImage *)imageToFilter{
+    return [self newCGImageByFilteringCGImage:[imageToFilter CGImage]];
+}
+
+#else
+
+- (NSImage *)imageFromCurrentFramebuffer;
+{
+    return [self imageFromCurrentFramebufferWithOrientation:UIImageOrientationLeft];
+}
+
+- (NSImage *)imageFromCurrentFramebufferWithOrientation:(UIImageOrientation)imageOrientation;
+{
+    CGImageRef cgImageFromBytes = [self newCGImageFromCurrentlyProcessedOutput];
+    NSImage *finalImage = [[NSImage alloc] initWithCGImage:cgImageFromBytes size:NSZeroSize];
+    CGImageRelease(cgImageFromBytes);
+    
+    return finalImage;
+}
+
+- (NSImage *)imageByFilteringImage:(NSImage *)imageToFilter;
+{
+    CGImageRef image = [self newCGImageByFilteringCGImage:[imageToFilter CGImageForProposedRect:NULL context:[NSGraphicsContext currentContext] hints:nil]];
+    NSImage *processedImage = [[NSImage alloc] initWithCGImage:image size:NSZeroSize];
+    CGImageRelease(image);
+    return processedImage;
+}
+
+- (CGImageRef)newCGImageByFilteringImage:(NSImage *)imageToFilter
+{
+    return [self newCGImageByFilteringCGImage:[imageToFilter CGImageForProposedRect:NULL context:[NSGraphicsContext currentContext] hints:nil]];
+}
+
+#endif
+
+- (void)setAudioEncodingTarget:(GPUImageMovieWriter *)audioEncodingTarget{
+    // TODO
+}
+
+- (void)setOutputTextureOptions:(GLTextureOptions)outputTextureOptions {
+    _outputTextureOptions = outputTextureOptions;
+    if (_outputFrameBuffer.texture) {
+        glBindTexture(GL_TEXTURE_2D, _outputFrameBuffer.texture);
+        //_outputTextureOptions.format
+        //_outputTextureOptions.internalFormat
+        //_outputTextureOptions.magFilter
+        //_outputTextureOptions.minFilter
+        //_outputTextureOptions.type
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, _outputTextureOptions.wrapS);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, _outputTextureOptions.wrapT);
+        glBindTexture(GL_TEXTURE_2D, 0);
+    }
+}
+
 @end
