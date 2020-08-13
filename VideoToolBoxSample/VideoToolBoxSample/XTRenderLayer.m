@@ -309,6 +309,16 @@ const GLchar *shader_vsh = (const GLchar*)"attribute vec4 position;"
     return _pixelBuffer;
 }
 
+- (void) resetRenderBuffer
+{
+    if (!_context || ![EAGLContext setCurrentContext:_context]) {
+        return;
+    }
+    
+    [self releaseBuffers];
+    [self createBuffers];
+}
+
 - (void)setPixelBuffer:(CVPixelBufferRef)pixelBuffer {
     if (_pixelBuffer) {
         CVPixelBufferRelease(pixelBuffer);
