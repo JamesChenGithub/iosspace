@@ -143,6 +143,8 @@
 -(void)renderNV12With:(uint8_t*)yBuffer uvBuffer:(uint8_t*)uvBuffer width:(int)width height:(int)height {
     if (!self.textureY || self.textureWidth != width || self.textureHeight != height) {
         self.textureYDes  = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatR8Unorm width:width height:height mipmapped:NO];
+        self.textureWidth = width;
+        self.textureHeight = height;
     }
     
     self.textureY = [self.device newTextureWithDescriptor:self.textureYDes];

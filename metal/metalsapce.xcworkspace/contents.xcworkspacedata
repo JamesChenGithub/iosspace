@@ -2,6 +2,36 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Learn-Metal-master/TextureRenderer/TextureRenderer.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/others/MeshFrameGlowing/MeshFrameGlowing.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/OffScreenRendering/OffScreenRendering.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/MeshFrame/MeshFrame.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/GaussianBlurMPS/GaussianBlurMPS.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/MetalPoint/MetalPoint.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/MetalLinePrimitive/MetalLinePrimitive.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/MetalCube/MetalCube.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/MetalLine/MetalLine.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Learn-Metal-master/HelloMetal/HelloMetal.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:MetalDemo/MetalDemo.xcodeproj">
    </FileRef>
    <FileRef

@@ -42,11 +42,11 @@ fragment float4 nv12_fragment(VertexOut fragmentInput [[stage_in]],
     
     float y = textureY.sample(quadSampler,fragmentInput.textureCoordinate).r;
     float u = textureUV.sample(quadSampler, fragmentInput.textureCoordinate).r - 0.5;
-    float v = textureUV.sample(quadSampler, fragmentInput.textureCoordinate).a - 0.5;
+    float v = textureUV.sample(quadSampler, fragmentInput.textureCoordinate).r - 0.5;
     
-    float r = y +             1.400 * v;
-    float g = y - 0.343 * u - 0.711 * v;
-    float b = y + 1.765 * u;
+    float r = 1.1644 * y +             1.596 * v;
+    float g = 1.1644 * y - 0.3918 * u - 0.813 * v;
+    float b = 1.1644 * y + 2.0172 * u;
     
     float4 color = float4(r,g,b,1.0);
     
