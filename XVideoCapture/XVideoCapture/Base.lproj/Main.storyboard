@@ -21,31 +21,44 @@
                     <navigationItem key="navigationItem" id="31r-Kd-EXX">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="camera" id="9zT-rq-M1e">
                             <connections>
-                                <segue destination="lAH-Cd-nGi" kind="popoverPresentation" popoverAnchorBarButtonItem="9zT-rq-M1e" id="ixb-Zb-ef7">
-                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                </segue>
+                                <action selector="onShowSetting:" destination="BYZ-38-t0r" id="dtG-Qd-5MH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="70"/>
+            <point key="canvasLocation" x="267" y="76"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="lyM-qI-hvg">
+        <!--Setting View Controller-->
+        <scene sceneID="prW-aD-jT4">
             <objects>
-                <viewController id="lAH-Cd-nGi" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zww-yD-auB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Yxj-SR-i7V" customClass="SettingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MJf-7f-3kL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="wrG-Qk-rBc"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ia1-Vf-tkl">
+                                <rect key="frame" x="12" y="56" width="390" height="40"/>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tfq-La-i4X"/>
+                                </constraints>
+                                <state key="normal" title="切换摄像头"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XDk-fE-E2x" firstAttribute="trailing" secondItem="ia1-Vf-tkl" secondAttribute="trailing" constant="12" id="6bZ-nS-fWq"/>
+                            <constraint firstItem="ia1-Vf-tkl" firstAttribute="top" secondItem="XDk-fE-E2x" secondAttribute="top" constant="12" id="QJB-bh-ugc"/>
+                            <constraint firstItem="ia1-Vf-tkl" firstAttribute="leading" secondItem="XDk-fE-E2x" secondAttribute="leading" constant="12" id="iTm-Ir-OMv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XDk-fE-E2x"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="BOm-Z4-yB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f8b-l5-Ngt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1123" y="70"/>
+            <point key="canvasLocation" x="1100" y="64"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Yiq-rj-YbQ">

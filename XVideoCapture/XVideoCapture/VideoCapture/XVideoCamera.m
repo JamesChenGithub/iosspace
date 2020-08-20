@@ -6,6 +6,7 @@
 //  Copyright © 2020 陈耀武. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "XVideoCamera.h"
 #import <UIKit/UIDevice.h>
 #import "XCommon.h"
@@ -74,10 +75,11 @@ static void *XVideoCameraKey;
     }
 }
 
-#define   ResetParams()    do {  _captureSession =  nil;\
+#define   XVideoCameraResetParams()    do {  _captureSession =  nil;\
 _captureDeviceInput = nil;\
 _captureDeviceOutput = nil;\
 _captureConnection =  nil;\
+_previewLayer = nil;\
 }while(0)
 
 - (BOOL)configSession:(NSError * _Nullable * _Nullable)outError; {
@@ -93,7 +95,7 @@ _captureConnection =  nil;\
         if ([session canSetSessionPreset:_sessionPreset]) {
             session.sessionPreset = _sessionPreset;
         } else {
-            ResetParams();
+            XVideoCameraResetParams();
             [session commitConfiguration];
             *outError = [NSError errorWithDomain:[XVideoCamera domain] code:-1 userInfo:@{@"errmsg" : @"can't setSessionPreset"}];
             return NO;
@@ -105,7 +107,7 @@ _captureConnection =  nil;\
         NSError *error = nil;
         deviceInput = [[AVCaptureDeviceInput alloc] initWithDevice:inputCamera error:&error];
         if (error) {
-            ResetParams();
+            XVideoCameraResetParams();
             [session commitConfiguration];
             *outError = [NSError errorWithDomain:[XVideoCamera domain] code:-2 userInfo:@{@"errmsg" : @"AVCaptureDeviceInput create failed"}];
             return NO;
@@ -114,7 +116,7 @@ _captureConnection =  nil;\
         if ([session canAddInput:deviceInput]) {
             [session addInput:deviceInput];
         } else {
-            ResetParams();
+            XVideoCameraResetParams();
             [session commitConfiguration];
             *outError = [NSError errorWithDomain:[XVideoCamera domain] code:-2 userInfo:@{@"errmsg" : @"can't addInput"}];
             return NO;
@@ -130,7 +132,7 @@ _captureConnection =  nil;\
         if ([session canAddOutput:deviceOutput]) {
             [session addOutput:deviceOutput];
         } else {
-            ResetParams();
+            XVideoCameraResetParams();
             [session commitConfiguration];
             *outError = [NSError errorWithDomain:[XVideoCamera domain] code:-2 userInfo:@{@"errmsg" : @"can't addOutput"}];
             return NO;
@@ -140,7 +142,7 @@ _captureConnection =  nil;\
         if (connection) {
             [connection  setVideoOrientation:_captureOrientation];
         } else {
-            ResetParams();
+            XVideoCameraResetParams();
             [session commitConfiguration];
             *outError = [NSError errorWithDomain:[XVideoCamera domain] code:-2 userInfo:@{@"errmsg" : @"connection failed"}];
             return NO;
@@ -175,9 +177,18 @@ _captureConnection =  nil;\
     }
 }
 
+- (AVCaptureVideoPreviewLayer *)previewLayer:(AVLayerVideoGravity)avg {
+    if (_previewLayer == nil) {
+        _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
+    }
+    [_previewLayer setVideoGravity:avg];
+    return _previewLayer;
+}
+
+
 #pragma mark - 对外接口
 
-- (void)startCapture {
+- (void)startCaptureInView:(UIView *)view fillMode:(AVLayerVideoGravity)avg {
     WEAKIFY(self);
     [XVideoCamera requestForAccess:^(BOOL succ) {
         STRONGIFY_OR_RETURN(self);
@@ -186,6 +197,20 @@ _captureConnection =  nil;\
             BOOL succ = [self configSession:&error];
             if (succ) {
                 [self.captureSession startRunning];
+                
+                WEAKIFY(view);
+                WEAKIFY(self);
+                XTAsyncRunInMain(^{
+                    STRONGIFY_OR_RETURN(view);
+                    STRONGIFY_OR_RETURN(self);
+                    if (view) {
+                        AVCaptureVideoPreviewLayer *pl = [self previewLayer:avg];
+                        [pl removeFromSuperlayer];
+                        pl.frame = view.bounds;
+                        [view.layer addSublayer:pl];
+                    }
+                });
+                
             } else {
                 DebugLog(@"startCapture failed : %@", error);
             }
@@ -196,21 +221,27 @@ _captureConnection =  nil;\
     
 }
 
+- (void)switchCamera {
+    _frontCamera = !_frontCamera;
+    if ([_captureSession isRunning]) {
+        <#statements#>
+    }
+}
+
 - (void)stopCapture {
     if (_captureSession) {
         [_captureDeviceOutput setSampleBufferDelegate:nil queue:nil];
         [_captureSession stopRunning];
+        
+        WEAKIFY(self);
+        XTAsyncRunInMain(^{
+            STRONGIFY_OR_RETURN(self);
+            [self->_previewLayer removeFromSuperlayer];
+        });
     }
-    ResetParams();
+    XVideoCameraResetParams();
 }
 
-- (AVCaptureVideoPreviewLayer *)previewLayer:(AVLayerVideoGravity)avg {
-    if (_previewLayer == nil) {
-        _previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-    }
-    [_previewLayer setVideoGravity:avg];
-    return _previewLayer;
-}
 
 
 #pragma mark - AVCaptureVideoDataOutputSampleBufferDelegate
