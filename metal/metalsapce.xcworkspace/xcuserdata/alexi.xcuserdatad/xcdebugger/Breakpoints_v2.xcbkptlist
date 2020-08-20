@@ -3,4 +3,22 @@
    uuid = "9B330013-C13D-4F7D-AFDA-B180F5002264"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "97A5AC29-939F-4243-8E25-36855A3BCA1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MetalVideo/MetalVideo/RenderView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "-renderRGBAWith:width:height:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
