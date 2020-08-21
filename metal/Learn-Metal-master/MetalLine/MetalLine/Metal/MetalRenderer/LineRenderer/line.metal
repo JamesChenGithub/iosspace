@@ -20,7 +20,7 @@ vertex Vertex line_vertex_main(device Vertex *vertices [[buffer(0)]],
                                 uint vid [[vertex_id]],
                                 uint iid [[instance_id]])
 {
-    float thickness=0.02;
+    float thickness=0.005;
     uint lineIndex1=lineIndices[iid].x;
     uint lineIndex2=lineIndices[iid].y;
     

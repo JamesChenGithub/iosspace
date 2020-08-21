@@ -14,7 +14,7 @@
 
 @interface TriangleRenderer : NSObject
 
-- (instancetype)initWithLayer:(CAMetalLayer *)layer andContext: (MetalContext *)context;
+- (instancetype)initWithLayer:(CAMetalLayer *)layer andContext:(MetalContext *)context;
 - (void)draw;
 
 @end

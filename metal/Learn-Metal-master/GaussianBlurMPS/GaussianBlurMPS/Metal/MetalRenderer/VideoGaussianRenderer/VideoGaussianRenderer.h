@@ -12,6 +12,6 @@
 @interface VideoGaussianRenderer : NSObject
 
 - (instancetype)initWithLayer:(CAMetalLayer *)layer andContext: (MetalContext *)context andSigma: (const float) sigma;
-- (void)render: (CVPixelBufferRef)videoPixelBuffer;
+- (void)render:(CVPixelBufferRef)videoPixelBuffer;
 
 @end
